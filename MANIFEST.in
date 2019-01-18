@@ -1,0 +1,5 @@
+include dash_average_component/dash_average_component.min.js
+include dash_average_component/dash_average_component.dev.js
+include dash_average_component/metadata.json
+include dash_average_component/package.json
+include README.md
