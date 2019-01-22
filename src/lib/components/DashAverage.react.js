@@ -64,6 +64,9 @@ export default class DashAverage extends Component {
 
         return (
             <div style={style} key={nameStep} className="dash-average__block dash-average-block">
+                <div style={style} className="dash-average-block__title-colorized">
+                    <span>{nameStep}</span>
+                </div>
                 <div className="dash-average-block__title">{nameStep}</div>
                 <div className="dash-average-block__percent">{percent}%</div>
                 <div className="dash-average-block__minutes">{meanTime} min</div>
@@ -111,7 +114,7 @@ export default class DashAverage extends Component {
             <div id={id}>
                 <div className="dash-average">
                     <div className="dash-average__controls">
-                        <label className="dash-average__label">
+                        <label className="dash-average__label group-date">
                             <span className="dash-average__label-text">Select a date</span>
                             <input
                                 className="dash-average__input"
