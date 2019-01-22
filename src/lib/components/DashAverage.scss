@@ -81,6 +81,7 @@
             padding: 10px 12%;
             text-overflow: ellipsis;
             overflow: hidden;
+            transition: width ease 0.3s;
 
             @media(max-width: $max-md-viewport) {
                 border-radius: 4px;
