@@ -8,7 +8,12 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            value: ''
+            date: '',
+            period: 'day',
+            data: {
+                "error": false,
+                "steps": {}
+            }
         };
         this.setProps = this.setProps.bind(this);
     }
