@@ -105,6 +105,8 @@ export default class DashAverage extends Component {
             ? `${dayStart} ${monthStart} to ${dayEnd} ${monthEnd}`
             : `${dayStart} ${monthStart}`
 
+            console.log(typeof date)
+
         return (
             <div id={id}>
                 <div className="dash-average">
@@ -115,7 +117,7 @@ export default class DashAverage extends Component {
                                 className="dash-average__input"
                                 type="date"
                                 name="date"
-                                // value={date}
+                                value={date}
                                 onChange={this.handleChange}
                             />
                         </label>
@@ -133,18 +135,26 @@ export default class DashAverage extends Component {
                         </label>
                     </div>
 
-                    <div className="dash-average__header">
-                        <h2 className="dash-average__title">{title}</h2>
-                        <div className="dash-average__date">({periodText})</div>
-                    </div>
+                    {date !== '' ? (
+                        <div className="dash-average__content">
+                            <div className="dash-average__header">
+                                <h2 className="dash-average__title">{title}</h2>
+                                <div className="dash-average__date">({periodText})</div>
+                            </div>
 
-                    <div className="dash-average__body">
-                        {
-                            objectKeys.map(nameStep => {
-                                return this.renderBlock(nameStep)
-                            })
-                        }
-                    </div>
+                            <div className="dash-average__body">
+                                {
+                                    objectKeys.map(nameStep => {
+                                        return this.renderBlock(nameStep)
+                                    })
+                                }
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="select">
+                            Select a date to show the order data.
+                        </div>
+                    )}
                     
                     {data.error ? (
                         <div className="dash-average__status">
@@ -159,7 +169,9 @@ export default class DashAverage extends Component {
 
 DashAverage.defaultProps = {
     data: {
-        "error": false,
+        "error": {
+            "message": "Message error"
+        },
         "steps": {}
     }
 }

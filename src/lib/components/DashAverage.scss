@@ -40,7 +40,7 @@
 
     &-block {
         text-align: center;
-        min-width: 50px;
+        min-width: 80px;
         transition: width ease 0.3s;
 
         &__title {
@@ -53,10 +53,6 @@
         &__percent {
             margin: 20px 0 6px;
             font-weight: 700;
-        }
-
-        &__minutes {
-
         }
 
         &:first-of-type {
