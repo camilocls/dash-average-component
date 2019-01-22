@@ -25,7 +25,6 @@ def convert_date_to_ms(date_time):
     # add 7 hours so that it is Aug. 8th --> PST: 12:00 PM
     return (int(time.mktime(utc.timetuple())) + (7 * 3600)) * 1000
 
-
 class Orders():
     """Gets orders from the orders database and returns it as a df"""
     db = object
@@ -33,8 +32,7 @@ class Orders():
     def __init__(self, query):
         # initialize access to db
 
-        # mongo_uri = os.environ['MONGO_URI']
-        mongo_uri = 'mongodb://skyblue:mlab123456@ds159164.mlab.com:59164/data_metrics'
+        mongo_uri = os.environ['MONGO_URI']
         client = MongoClient('{}'.format(mongo_uri))
         db = client.data_metrics
         collection = db['orders']
@@ -199,6 +197,8 @@ app = dash.Dash(__name__)
 
 app.scripts.config.serve_locally = True
 app.css.config.serve_locally = True
+
+server = app.server
 
 app.layout = html.Div([
     dash_average_component.DashAverage(
