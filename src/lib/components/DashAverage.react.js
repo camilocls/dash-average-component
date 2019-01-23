@@ -108,8 +108,6 @@ export default class DashAverage extends Component {
             ? `${dayStart} ${monthStart} to ${dayEnd} ${monthEnd}`
             : `${dayStart} ${monthStart}`
 
-            console.log(typeof date)
-
         return (
             <div id={id}>
                 <div className="dash-average">
